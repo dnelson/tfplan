@@ -248,7 +248,7 @@ EOF
 
 if [[ $git_diff == "true" ]] || [[ ${#files_to_read[@]} -gt 0 ]] && [[ ${#resources_and_modules[@]} -eq 0 ]]; then
     echo "No targets were found, exiting"
-    exit 1
+    exit 78
 fi
 
 for object in "${resources_and_modules[@]}"
