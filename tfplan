@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 
 set -e
 
@@ -47,7 +47,7 @@ EOF
 version() {
     cwd=$(pwd)
     if [[ -L $0 ]]; then
-        file_path=$(readlink $(which $0))
+        file_path=$(readlink $(command -v "$0" >/dev/null 2>&1))
         file_dir=$(dirname $file_path)
     else
         file_dir=$(cd $(dirname $0) && pwd -P)
@@ -257,7 +257,7 @@ do
     echo $object
 done
 
-if [[ `which landscape` ]]; then
+if [[ $(command -v landscape >/dev/null 2>&1) ]]; then
     command="$command | landscape"
 fi
 
